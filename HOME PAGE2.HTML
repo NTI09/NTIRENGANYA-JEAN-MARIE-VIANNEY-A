@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USD ⇄ RWF Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #edbcf7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+      cursor: help;
+      
+    }
+    h1 {
+      color: #333;
+    }
+    .converter {
+      background: rgb(39, 187, 224);
+      padding: 40px;
+      border-radius: px;
+      box-shadow:10px 10px 10px 30px  rgb(140, 184, 54) , 10px 10px 10px 50px yellow, 10px 10px 10px 70px rgb(9, 9, 196);
+      max-width: 1000px;
+     height: 80%;
+     position: relative;
+     top: 30%;
+     cursor: cell;
+      
+    }
+    label, select, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 16px;
+      cursor: wait;
+    }
+    button {
+      
+           background-color: #310435;
+      color: white;
+      border: none;
+      border-radius: 50% 50% 50% 5%;
+      cursor: -webkit-grab;
+      position: relative;
+      right: -11%;
+    justify-content: center; align-items: center;
+    height: 70px;
+   margin-left: -100px;
+   margin-top: 80px;
+   box-shadow: 2px 2px 2px 2px  #29e903;
+    
+
+      
+    }
+    button:hover {
+      background-color:rgb(2, 56, 2) 
+
+    }
+    .div{background-color: rgb(45, 5, 54);
+      cursor: progress;
+    width: 100%;
+  height:50%;
+  box-shadow: 1px 5px 10px 5px rgb(206, 179, 28);
+position: absolute;top: 0;
+left: 0;}
+    #result {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      color:black;
+    }
+    
+  </style>
+</head>
+<body style="border: 12px solid gray;width: 85%;height: 490px;position: absolute;top: 2%; right: 3%; box-shadow:  3px 3px 10px 10px#29e903; ">
+<div >
+
+  
+  <center><div class="e"><div class="div"><div class="a">
+    <h1 style="color: white;"> XYZ-CAMPANY</h1> 
+    <p1 style="color: white;">CURRANCY EXCHANGE PLATFORM</p1></div>
+
+    <div class="converter"><div style="display: flex;">
+        <label for="amount">AMOUNT:</label>
+        <input type="number" id="amount"  />
+    
+        <label for="direction">FROM</label>
+        <select id="direction">
+          <option value="usd_to_rwf">USD-$</option>
+          <option value="rwf_to_usd">FRW</option>
+        </select>
+        <label for="direction">TO</label>
+        <br>
+        <select id="direction">
+          <option value="usd_to_rwf">RWANDA</option>
+          <option value="rwf_to_usd">USD</option>
+        </select></div>
+    
+      <div style="display: flex;">  <button onclick="convertCurrency()"style="width:170PX " >Convert</button>
+        
+        
+        
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        <P>RESULTS</P></div>
+    
+        <div id="result"></div>
+      </div>
+    
+  <script>
+    function convertCurrency() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const direction = document.getElementById('direction').value;
+      const exchangeRate = 1250; // Example rate: 1 USD = 1250 RWF
+      let result = "";
+
+      if (isNaN(amount) || amount <= 0) {
+        result = "Please enter a valid amount.";
+      } else {
+        if (direction === "usd_to_rwf") {
+          result = `${amount} USD = ${(amount * exchangeRate).toFixed(2)} RWF`;
+        } else {
+          result = `${amount} RWF = ${(amount / exchangeRate).toFixed(2)} USD`;
+        }
+      }
+
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+
+</body>
+</html>
