@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+body{
+background-color: rgb(236, 225, 225);
+}
+.QEE{
+    background-color: black;
+    height: 300px;
+}
+
+.QW{
+    color: white;
+    font-size: 30px;
+position:absolute ;
+align-items: center;
+justify-content: center;
+right: 600px;
+}
+.AE{
+color:white;
+font-size: 30px;
+position:absolute ;
+align-items: center;
+justify-content: center;
+right: 500px;
+top: 50px;
+}
+.rt{
+
+background-color: white;
+width: 1000px;
+height: 400px;
+position: absolute;
+right: 300px;
+top: 240px;
+}
+.jmv{
+    position: absolute;
+    right: 700px;
+    top: 70px;
+    display: inline-block;
+}
+.mvj{
+
+
+position: absolute;
+right: 40%;
+top: 70px;
+}
+
+.nti{
+position: absolute;
+right: 10%;
+top:70px;
+
+}
+.renga{
+
+position: absolute;
+right: 70%;
+background-color: rgb(75, 50, 99);
+color:white;
+top: 300px;
+width: 200px;
+border-radius: 10px;
+height: 60px;
+
+
+}
+
+.nya{
+
+position: absolute;
+right: 9%;
+top: 300px;
+
+
+}
+
+
+.sa{
+position: absolute;
+text-decoration: none;
+right: 80%;
+top: 50px;
+}
+
+.va{
+    position: absolute;
+    right: 50%;
+    top: 50px;
+}
+.xa{
+position: absolute;
+right: 20%;
+top: 50px;
+}
+.ca{
+
+position: absolute;
+right: 20%;
+top: 280px;
+text-decoration: none;
+}
+.kuu{
+list-style: none;
+}
+    
+
+
+
+
+</style>
+</head>
+<body>
+<header class="QEE">
+<h1 class="QW">XYZ-COMPANY</h1>
+<p class="AE">CURRANCY EXCHANGE PLATEFORM</p>
+</header>
+<fieldset class="rt">
+<form action="type" class="jmv">
+<input type="number" />
+</form>
+<form action="convert" class="mvj">
+    <input type="number"/>
+
+</form>
+<form action="display" class="nti"> 
+    <input type="number"/>
+</form>
+<form action="display" class="nya">
+    <input type="dislay">
+</form>
+<button class="renga"> convert</button>
+<ul class="kuu">
+<li class="sa">Amount</li>
+<li class="va">From</li>
+<li class="xa">to</li>
+<li class="ca">Result</li>
+</ul>
+</fieldset>
+
+ <script>
+ function convertCurrency() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const direction = document.getElementById('direction').value;
+      const exchangeRate = 1250; // Example rate: 1 USD = 1250 RWF
+      let result = "";
+
+      if (isNaN(amount) || amount <= 0) {
+        result = "Please enter a valid amount.";
+      } else {
+        if (direction === "usd_to_rwf") {
+          result = `${amount} USD = ${(amount * exchangeRate).toFixed(2)} RWF`;
+        } else {
+          result = `${amount} RWF = ${(amount / exchangeRate).toFixed(2)} USD`;
+        }
+
+document.getElementById('result').innerText = result;
+    }
+ }
+</script>
+</body>
+</html>
